@@ -1,20 +1,29 @@
-//Navigation.tsx
+// components/common/Navigation.tsx
+import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <section className="px-8 lg:px-16 py-6 absolute left-0 right-0 bottom-0">
-      {/* Navigation menu aligned to the left */}
-      <div className="mt-3 flex flex-nowrap items-center justify-start gap-10">
-        <button className="font-serif text-s tracking-[0.35em] uppercase leading-none">
+    <nav className="fixed bottom-0 left-0 right-0 px-8 lg:px-16 py-6 z-50">
+      <div className="flex gap-10">
+        <Link
+          href="/work"
+          className="font-serif text-s tracking-[0.35em] uppercase"
+        >
           Work
-        </button>
-        <button className="font-serif text-s tracking-[0.35em] uppercase leading-none">
+        </Link>
+        <Link
+          href="/profile"
+          className="font-serif text-s tracking-[0.35em] uppercase"
+        >
           Profile
-        </button>
-        <button className="font-serif text-s tracking-[0.35em] uppercase leading-none">
+        </Link>
+        <Link
+          href="/contact"
+          className="font-serif text-s tracking-[0.35em] uppercase"
+        >
           Contact
-        </button>
+        </Link>
       </div>
-    </section>
+    </nav>
   );
 }
