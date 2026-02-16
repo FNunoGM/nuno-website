@@ -7,19 +7,19 @@ export default function Navigation() {
       <div className="flex gap-6 lg:gap-10 justify-center lg:justify-start">
         <Link
           href="/work"
-          className="font-serif text-xs lg:text-sm tracking-[0.25em] lg:tracking-[0.35em] uppercase"
+          className="font-serif text-s lg:text-xs tracking-[0.25em] lg:tracking-[0.35em] uppercase"
         >
           Work
         </Link>
         <Link
           href="/profile"
-          className="font-serif text-xs lg:text-sm tracking-[0.25em] lg:tracking-[0.35em] uppercase"
+          className="font-serif text-s lg:text-xs tracking-[0.25em] lg:tracking-[0.35em] uppercase"
         >
           Profile
         </Link>
         <Link
           href="/contact"
-          className="font-serif text-xs lg:text-sm tracking-[0.25em] lg:tracking-[0.35em] uppercase"
+          className="font-serif text-s lg:text-xs tracking-[0.25em] lg:tracking-[0.35em] uppercase"
         >
           Contact
         </Link>
