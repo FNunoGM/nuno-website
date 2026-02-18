@@ -11,7 +11,7 @@ export default function Contact() {
         {/* Email */}
         <a
           href="mailto:fnuno91@gmail.com"
-          className="font-sans text-lg lg:text-4xl tracking-[0.15em] hover:text-japandi-accent transition-colors"
+          className="font-sans text-s lg:text-lg tracking-[0.15em] hover:text-japandi-accent transition-colors"
         >
           fnuno91@gmail.com
         </a>
