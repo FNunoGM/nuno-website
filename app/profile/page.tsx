@@ -17,7 +17,7 @@ export default function Profile() {
           </div>
 
           {/* RIGHT - Skills */}
-          <div className="w-full lg:w-1/2 lg:justify-items-end">
+          <div className="w-full lg:w-1/2 lg:justify-items-center">
             <ul className="space-y-3 lg:space-y-4">
               {skills.map((skill, index) => (
                 <li
