@@ -24,7 +24,7 @@ export default function Profile() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
             {/* LEFT - Title */}
             <div className="w-full lg:w-1/2 lg:justify-items-start content-center">
-              <h1 className="font-serif text-s md:text-lg tracking-[0.25em] lg:tracking-[0.35em] uppercase">
+              <h1 className="font-serif text-s md:text-lg tracking-[0.20em] lg:tracking-[0.30em] uppercase">
                 Skills & Stack
               </h1>
             </div>
@@ -35,7 +35,7 @@ export default function Profile() {
                 {skills.map((skill, index) => (
                   <li
                     key={index}
-                    className="font-sans text-xs md:text-base tracking-[0.08em] uppercase"
+                    className="font-sans text-xs md:text-xs tracking-[0.20em] uppercase"
                   >
                     {skill}
                   </li>

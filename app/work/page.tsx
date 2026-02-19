@@ -23,7 +23,7 @@ export default function Work() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
             {/* LEFT - Title */}
             <div className="w-full lg:w-1/4 content-center">
-              <h1 className="font-serif text-s md:text-lg tracking-[0.25em] lg:tracking-[0.35em] uppercase">
+              <h1 className="font-serif text-s md:text-lg tracking-[0.20em] lg:tracking-[0.30em] uppercase">
                 Currently working on
               </h1>
             </div>
@@ -33,7 +33,7 @@ export default function Work() {
               {projects.map((project, index) => (
                 <div key={index} className="space-y-4">
                   <div className="flex flex-col items-center">
-                    <div className="overflow-hidden rounded-sm group w-3/4">
+                    <div className="overflow-hidden rounded-sm group w-2/3 shadow-xl rounded-sm">
                       <Link
                         href={project.url}
                         target="_blank"
@@ -52,17 +52,10 @@ export default function Work() {
 
                   {/* Title */}
                   <div className="flex justify-center mt-6">
-                    <h2 className="font-sans text-xs tracking-[0.20em] uppercase">
+                    <h2 className="font-sans text-sm tracking-[0.20em]">
                       {project.title}
                     </h2>
                   </div>
-
-                  {/* <div className="flex justify-center mt-8">
-                    <h2 className="font-sans text-xs md:text-base tracking-[0.15em]">
-                      STACK
-                    </h2>
-                  </div> */}
-
                   {/* Technologies */}
                   <ul className="flex gap-4 flex-wrap justify-center mt-6">
                     {project.technologies.map((tech, i) => (

@@ -13,7 +13,7 @@ export default function Contact() {
             {/* Email */}
             <a
               href="mailto:fnuno91@gmail.com"
-              className="font-sans text-s md:text-lg tracking-[0.15em] opacity-100 hover:opacity-70 transition-opacity duration-500"
+              className="font-sans text-xs md:text-sm tracking-[0.20em] opacity-100 hover:opacity-70 transition-opacity duration-500"
             >
               fnuno91@gmail.com
             </a>
