@@ -6,7 +6,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 px-8 lg:px-16 pt-8 lg:pt-12 z-50">
       <Link
         href="/"
-        className="font-serif text-3xl md:text-4xl tracking-[0.18em] uppercase hover:text-japandi-accent transition-colors"
+        className="font-serif text-3xl md:text-4xl tracking-[0.25em] lg:tracking-[0.35em] uppercase opacity-100 hover:opacity-70 transition-opacity duration-500"
       >
         Nuno Mendes
       </Link>

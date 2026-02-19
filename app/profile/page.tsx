@@ -1,36 +1,50 @@
-import Header from "@/components/home/Header";
-import Navigation from "@/components/home/Navigation";
+import Header from "@/components/common/Header";
+import Navigation from "@/components/common/Navigation";
+import PageTransition from "@/components/common/PageTransition";
 
 export default function Profile() {
-  const skills = ["JAVASCRIPT", "TYPESCRIPT", "HTML/CSS", "REACT", "NEXT.JS"];
+  const skills = [
+    "JAVASCRIPT",
+    "TYPESCRIPT",
+    "HTML/CSS",
+    "REACT",
+    "NEXT.JS",
+    "TAILWIND CSS",
+    "SASS",
+    "STYLED COMPONENTS",
+    "GIT",
+    "FIGMA",
+  ];
 
   return (
     <>
       <Header />
-      <main className="min-h-screen px-8 lg:px-16 py-16 lg:py-24 content-center">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
-          {/* LEFT - Title */}
-          <div className="w-full lg:w-1/2 lg:justify-items-start">
-            <h1 className="font-serif text-s lg:text-lg tracking-[0.25em] lg:tracking-[0.35em] uppercase">
-              Skills & Stack
-            </h1>
-          </div>
+      <PageTransition>
+        <main className="min-h-screen px-8 lg:px-16 py-16 lg:py-24 content-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
+            {/* LEFT - Title */}
+            <div className="w-full lg:w-1/2 lg:justify-items-start content-center">
+              <h1 className="font-serif text-s md:text-lg tracking-[0.25em] lg:tracking-[0.35em] uppercase">
+                Skills & Stack
+              </h1>
+            </div>
 
-          {/* RIGHT - Skills */}
-          <div className="w-full lg:w-1/2 lg:justify-items-start">
-            <ul className="space-y-3 lg:space-y-4">
-              {skills.map((skill, index) => (
-                <li
-                  key={index}
-                  className="font-sans text-sm lg:text-base tracking-[0.08em] uppercase"
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
+            {/* RIGHT - Skills */}
+            <div className="w-full lg:w-1/2 lg:justify-items-start">
+              <ul className="space-y-3 lg:space-y-4">
+                {skills.map((skill, index) => (
+                  <li
+                    key={index}
+                    className="font-sans text-xs md:text-base tracking-[0.08em] uppercase"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </PageTransition>
       <Navigation />
     </>
   );
