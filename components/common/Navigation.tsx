@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 px-8 lg:px-16 py-6 z-50">
+    <nav className="fixed bottom-0 left-0 px-8 lg:px-16 py-6 z-50">
       <div className="flex gap-6 lg:gap-10 justify-center lg:justify-start">
         <Link
           href="/work"
