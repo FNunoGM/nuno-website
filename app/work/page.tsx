@@ -11,7 +11,17 @@ export default function Work() {
       title: "Portfolio Website for Luisa Hentsch",
       url: "https://luisahentsch.com/",
       image: "/work/luisa-hentsch.jpg",
-      technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      year: "2025",
+      role: "Design & Development",
+      description:
+        "A minimal editorial portfolio for artist Luisa Hentsch, with Sanity-powered content editing.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Sanity",
+      ],
     },
   ];
 
@@ -24,49 +34,62 @@ export default function Work() {
             {/* LEFT - Title */}
             <div className="w-full lg:w-1/4 content-center">
               <h1 className="font-serif text-s md:text-lg tracking-[0.20em] lg:tracking-[0.30em] uppercase">
-                Currently working on
+                Work
               </h1>
             </div>
 
             {/* RIGHT - Projects */}
-            <div className="w-full lg:w-1/2 space-y-12">
+            <div className="w-full lg:w-1/2 space-y-16">
               {projects.map((project, index) => (
-                <div key={index} className="space-y-4">
-                  <div className="flex flex-col items-center">
-                    <div className="overflow-hidden rounded-sm group w-2/3 shadow-xl rounded-sm">
-                      <Link
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={900}
-                          height={600}
-                          className="w-full object-cover transition-opacity duration-500 hover:opacity-70"
-                        />
-                      </Link>
-                    </div>
+                <div key={index} className="space-y-6">
+                  <div className="overflow-hidden rounded-sm shadow-xl">
+                    <Link
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={900}
+                        height={600}
+                        className="w-full object-cover transition-opacity duration-500 hover:opacity-70"
+                      />
+                    </Link>
                   </div>
 
-                  {/* Title */}
-                  <div className="flex justify-center mt-6">
-                    <h2 className="font-sans text-sm tracking-[0.20em]">
-                      {project.title}
-                    </h2>
+                  {/* Meta */}
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-baseline gap-4">
+                      <h2 className="font-sans text-sm tracking-[0.20em]">
+                        {project.title}
+                      </h2>
+                      <span className="font-sans text-xs tracking-[0.20em] opacity-60 shrink-0">
+                        {project.year}
+                      </span>
+                    </div>
+                    <p className="font-sans text-xs tracking-[0.10em] opacity-70 leading-relaxed">
+                      {project.role} — {project.description}
+                    </p>
+                    <ul className="flex gap-4 flex-wrap pt-2">
+                      {project.technologies.map((tech, i) => (
+                        <li
+                          key={i}
+                          className="font-sans text-xs tracking-[0.20em] uppercase opacity-60"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-xs tracking-[0.20em] uppercase inline-block pt-4 hover:opacity-70 transition-opacity"
+                    >
+                      Visit site ↗
+                    </Link>
                   </div>
-                  {/* Technologies */}
-                  <ul className="flex gap-4 flex-wrap justify-center mt-6">
-                    {project.technologies.map((tech, i) => (
-                      <li
-                        key={i}
-                        className="font-sans text-xs tracking-[0.20em] uppercase"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               ))}
             </div>

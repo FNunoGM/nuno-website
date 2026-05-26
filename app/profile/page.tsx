@@ -3,17 +3,19 @@ import Navigation from "@/components/common/Navigation";
 import PageTransition from "@/components/common/PageTransition";
 
 export default function Profile() {
-  const skills = [
-    "JAVASCRIPT",
-    "TYPESCRIPT",
-    "HTML/CSS",
-    "REACT",
-    "NEXT.JS",
-    "TAILWIND CSS",
-    "SASS",
-    "STYLED COMPONENTS",
-    "GIT",
-    "FIGMA",
+  const skillGroups = [
+    {
+      category: "Stack",
+      items: ["Next.js", "TypeScript", "React", "Tailwind"],
+    },
+    {
+      category: "Commerce & CMS",
+      items: ["Shopify", "Sanity"],
+    },
+    {
+      category: "Tools",
+      items: ["Vercel", "Figma"],
+    },
   ];
 
   return (
@@ -31,13 +33,15 @@ export default function Profile() {
 
             {/* RIGHT - Skills */}
             <div className="w-full lg:w-1/2 lg:justify-items-start">
-              <ul className="space-y-3 lg:space-y-4">
-                {skills.map((skill, index) => (
-                  <li
-                    key={index}
-                    className="font-sans text-xs md:text-xs tracking-[0.20em] uppercase"
-                  >
-                    {skill}
+              <ul className="space-y-8 lg:space-y-10">
+                {skillGroups.map((group) => (
+                  <li key={group.category}>
+                    <h2 className="font-sans text-xs tracking-[0.30em] uppercase opacity-60 mb-2 lg:mb-3">
+                      {group.category}
+                    </h2>
+                    <p className="font-sans text-xs md:text-xs tracking-[0.20em] uppercase">
+                      {group.items.join(" · ")}
+                    </p>
                   </li>
                 ))}
               </ul>
