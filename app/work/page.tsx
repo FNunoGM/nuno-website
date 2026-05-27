@@ -5,14 +5,24 @@ import PageTransition from "@/components/common/PageTransition";
 import Image from "next/image";
 import Link from "next/link";
 
+type Project = {
+  title: string;
+  url?: string;
+  image?: string;
+  year: string;
+  role: string;
+  description: string;
+  technologies: string[];
+};
+
 export default function Work() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Portfolio Website for Luisa Hentsch",
       url: "https://luisahentsch.com/",
       image: "/work/luisa-hentsch.jpg",
       year: "2025",
-      role: "Design & Development",
+      role: "Development",
       description:
         "A minimal editorial portfolio for artist Luisa Hentsch, with Sanity-powered content editing.",
       technologies: [
@@ -23,74 +33,101 @@ export default function Work() {
         "Sanity",
       ],
     },
+    {
+      title: "E-commerce Website for Alan Louis",
+      year: "2026",
+      role: "Design & Development",
+      description:
+        "A bilingual headless storefront for the Paris design boutique Alan Louis — editorial, image-led, built on Shopify and Sanity.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Shopify",
+        "Sanity",
+        "Tailwind CSS",
+      ],
+    },
+    {
+      title: "Website for Slow Sunday Rituals",
+      year: "2026",
+      role: "Design & Development",
+      description:
+        "An editorial website for German nutritionist Amélie's wellness practice, Slow Sunday Rituals.",
+      technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    },
   ];
 
   return (
     <>
       <Header />
       <PageTransition>
-        <main className="min-h-screen px-8 lg:px-16 py-16 content-center">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
-            {/* LEFT - Title */}
-            <div className="w-full lg:w-1/4 content-center">
-              <h1 className="font-serif text-s md:text-lg tracking-[0.20em] lg:tracking-[0.30em] uppercase">
-                Work
-              </h1>
-            </div>
-
-            {/* RIGHT - Projects */}
-            <div className="w-full lg:w-1/2 space-y-16">
+        <main className="min-h-screen px-8 lg:px-16 pt-40 pb-36 lg:py-16 content-center">
+          <div>
+            {/* Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
               {projects.map((project, index) => (
-                <div key={index} className="space-y-6">
-                  <div className="overflow-hidden rounded-sm shadow-xl">
-                    <Link
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={900}
-                        height={600}
-                        className="w-full object-cover transition-opacity duration-500 hover:opacity-70"
-                      />
-                    </Link>
-                  </div>
+                <article key={index} className="space-y-5">
+                  {project.image && project.url ? (
+                    <div className="overflow-hidden rounded-sm shadow-xl aspect-[16/10]">
+                      <Link
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={900}
+                          height={600}
+                          className="w-full h-full object-contain transition-opacity duration-500 hover:opacity-70"
+                        />
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="aspect-[16/10] w-full rounded-sm bg-japandi-mid/15 flex items-center justify-center">
+                      <span className="font-serif text-xs tracking-[0.30em] uppercase opacity-60">
+                        Coming soon
+                      </span>
+                    </div>
+                  )}
 
                   {/* Meta */}
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-baseline gap-4">
-                      <h2 className="font-sans text-sm tracking-[0.20em]">
-                        {project.title}
-                      </h2>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-baseline gap-3">
+                      {project.url ? (
+                        <Link
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-sans text-xs tracking-[0.20em] leading-snug hover:opacity-70 transition-opacity"
+                        >
+                          {project.title}
+                        </Link>
+                      ) : (
+                        <h2 className="font-sans text-xs tracking-[0.20em] leading-snug">
+                          {project.title}
+                        </h2>
+                      )}
                       <span className="font-sans text-xs tracking-[0.20em] opacity-60 shrink-0">
                         {project.year}
                       </span>
                     </div>
-                    <p className="font-sans text-xs tracking-[0.10em] opacity-70 leading-relaxed">
-                      {project.role} — {project.description}
+                    <p className="font-sans text-xs tracking-[0.10em] opacity-70">
+                      {project.role}
                     </p>
-                    <ul className="flex gap-4 flex-wrap pt-2">
+                    <ul className="flex gap-3 flex-wrap pt-1">
                       {project.technologies.map((tech, i) => (
                         <li
                           key={i}
-                          className="font-sans text-xs tracking-[0.20em] uppercase opacity-60"
+                          className="font-sans text-xs tracking-[0.20em] uppercase opacity-50"
                         >
                           {tech}
                         </li>
                       ))}
                     </ul>
-                    <Link
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-sans text-xs tracking-[0.20em] uppercase inline-block pt-4 hover:opacity-70 transition-opacity"
-                    >
-                      Visit site ↗
-                    </Link>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
