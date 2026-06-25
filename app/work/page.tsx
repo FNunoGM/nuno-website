@@ -35,6 +35,8 @@ export default function Work() {
     },
     {
       title: "E-commerce Website for Alan Louis",
+      url: "https://alanlouisparis.com/",
+      image: "/work/alan-louis.jpg",
       year: "2026",
       role: "Design & Development",
       description:
