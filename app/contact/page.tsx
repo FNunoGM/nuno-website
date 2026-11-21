@@ -3,29 +3,49 @@ import Header from "@/components/common/Header";
 import Navigation from "@/components/common/Navigation";
 import PageTransition from "@/components/common/PageTransition";
 
+const asks = [
+  "who you are and what you make or sell",
+  "your current site, if you have one, and why now",
+  "any date you’re working towards, like a collection launch or a season",
+  "a budget range, if you have one",
+];
+
 export default function Contact() {
   return (
     <>
       <Header />
       <PageTransition>
-        <main className="min-h-screen flex flex-col">
+        <main className="min-h-screen px-8 lg:px-16 pt-40 pb-40 md:py-32 content-center">
           <h1 className="sr-only">Contact</h1>
-          <div className="flex-1 flex flex-col items-center justify-center px-8 gap-8">
-            {/* Invitation */}
-            <p className="font-sans text-xs md:text-sm tracking-[0.20em] opacity-70 text-center max-w-md leading-relaxed">
-              Open to freelance work
+          <div className="mx-auto max-w-[34rem]">
+            <p className="font-serif text-2xl md:text-3xl leading-snug text-balance">
+              Tell me about your brand. A few lines are enough:
             </p>
 
-            {/* Email */}
+            <ul className="mt-6 md:mt-8 space-y-3 font-serif text-base md:text-lg leading-relaxed">
+              {asks.map((ask) => (
+                <li
+                  key={ask}
+                  className="relative pl-6 text-pretty before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-japandi-mid"
+                >
+                  {ask}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 md:mt-12 font-sans text-xs tracking-[0.20em] opacity-70">
+              I reply within 48 hours.
+            </p>
+
             <a
               href="mailto:fnuno91@gmail.com"
-              className="py-3.5 -my-3.5 md:py-3 md:-my-3 font-sans text-xs md:text-sm tracking-[0.20em] hover:opacity-70 transition-opacity duration-500"
+              className="inline-block mt-3 py-3 font-serif text-xl md:text-2xl underline decoration-1 decoration-japandi-mid underline-offset-[0.3em] hover:opacity-70 transition-opacity duration-500"
             >
               fnuno91@gmail.com
             </a>
 
             {/* Social Icons */}
-            <nav aria-label="Social" className="flex items-center gap-6">
+            <nav aria-label="Social" className="mt-8 flex items-center gap-6">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/fnunogm/"
