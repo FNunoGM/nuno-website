@@ -56,6 +56,31 @@ export const projects: Project[] = [
     description:
       "A minimal editorial portfolio for artist Luisa Hentsch, with Sanity-powered content editing.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Sanity"],
+    // Drafted 2026-11-21 from her live site (luisahentsch.com), the
+    // luisa-hentsch-website repo and the Internet Archive. The design is
+    // hers, so "What I did" covers what the build lets her control.
+    caseStudy: {
+      draft: true,
+      // Source: her own About page and meta description.
+      about:
+        "Luisa Hentsch is a product designer and art director in Lisbon, working across design, curation and creative direction for Lisbon Design Week and independent artists.",
+      // Not on file in her words. The repo describes the intent as
+      // "image-led and editorial: the work is the interface".
+      goal: `${PLACEHOLDER} The goal, in the client's terms.`,
+      decisions: [
+        // Repo: Sanity orderable document list, queries sort by orderRank.
+        "She sets the order of her projects herself, by dragging them in the editor.",
+        // Repo: gallery items carry orientation; width/height from the image.
+        "She marks each image as portrait or landscape, and the page sizes it to match, so every piece keeps its own proportions.",
+        // Repo: work.hasDescription gate.
+        "She decides, project by project, whether a description appears or the images stand alone.",
+        // Repo: publish webhook revalidates by document type.
+        "When she publishes a change in the editor, it shows on the site straight away.",
+      ],
+      // Nothing on file. Vercel Analytics is on the project (no Umami).
+      result: `${PLACEHOLDER} The result.`,
+      // No quote, by Nuno's choice (2026-11-21).
+    },
   },
   {
     slug: "alan-louis",
