@@ -41,6 +41,29 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+// Solid behind the header/nav text so it stays legible over bright images,
+// then an ease-out falloff (multi-stop approximation) to transparent.
+const fadeStops: [number, number][] = [
+  [100, 45],
+  [95, 52],
+  [85, 58],
+  [73, 64],
+  [59, 70],
+  [45, 76],
+  [31, 82],
+  [19, 88],
+  [9, 93],
+  [3, 97],
+  [0, 100],
+];
+const fade = (direction: "top" | "bottom") =>
+  `linear-gradient(to ${direction}, var(--background) 0%, ${fadeStops
+    .map(
+      ([opacity, at]) =>
+        `color-mix(in srgb, var(--background) ${opacity}%, transparent) ${at}%`,
+    )
+    .join(", ")})`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,24 +73,17 @@ export default function RootLayout({
     <html lang="en" className={newsreader.variable}>
       <body>
         {children}
-        {/* Mobile-only fade masks so scrolling content dissolves into the background
-            near the fixed Header (top) and Navigation (bottom) instead of passing under them.
-            Multi-stop gradient approximates an ease-out curve for a softer falloff. */}
+        {/* Fade masks so scrolling content dissolves into the background
+            near the fixed Header (top) and Navigation (bottom) instead of passing under them. */}
         <div
           aria-hidden
-          className="fixed top-0 left-0 right-0 h-40 z-40 pointer-events-none md:hidden"
-          style={{
-            background:
-              "linear-gradient(to bottom, var(--background) 0%, color-mix(in srgb, var(--background) 95%, transparent) 15%, color-mix(in srgb, var(--background) 85%, transparent) 25%, color-mix(in srgb, var(--background) 73%, transparent) 35%, color-mix(in srgb, var(--background) 59%, transparent) 45%, color-mix(in srgb, var(--background) 45%, transparent) 55%, color-mix(in srgb, var(--background) 31%, transparent) 65%, color-mix(in srgb, var(--background) 19%, transparent) 75%, color-mix(in srgb, var(--background) 9%, transparent) 85%, color-mix(in srgb, var(--background) 3%, transparent) 92%, transparent 100%)",
-          }}
+          className="fixed top-0 left-0 right-0 h-40 z-40 pointer-events-none"
+          style={{ background: fade("bottom") }}
         />
         <div
           aria-hidden
-          className="fixed bottom-0 left-0 right-0 h-36 z-40 pointer-events-none md:hidden"
-          style={{
-            background:
-              "linear-gradient(to top, var(--background) 0%, color-mix(in srgb, var(--background) 95%, transparent) 15%, color-mix(in srgb, var(--background) 85%, transparent) 25%, color-mix(in srgb, var(--background) 73%, transparent) 35%, color-mix(in srgb, var(--background) 59%, transparent) 45%, color-mix(in srgb, var(--background) 45%, transparent) 55%, color-mix(in srgb, var(--background) 31%, transparent) 65%, color-mix(in srgb, var(--background) 19%, transparent) 75%, color-mix(in srgb, var(--background) 9%, transparent) 85%, color-mix(in srgb, var(--background) 3%, transparent) 92%, transparent 100%)",
-          }}
+          className="fixed bottom-0 left-0 right-0 h-36 md:h-32 z-40 pointer-events-none"
+          style={{ background: fade("top") }}
         />
         <Analytics />
       </body>
