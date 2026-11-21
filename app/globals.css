@@ -31,9 +31,13 @@ body {
   color: var(--background);
 }
 
-:focus-visible {
-  outline: 1px solid var(--foreground);
-  outline-offset: 4px;
+/* In the base layer so a component can override it with utilities
+   (e.g. the Work cards move the outline to the whole card). */
+@layer base {
+  :focus-visible {
+    outline: 1px solid var(--foreground);
+    outline-offset: 4px;
+  }
 }
 
 /* Page entrance: a short fade that needs no JavaScript. */

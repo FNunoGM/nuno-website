@@ -77,12 +77,12 @@ export default function RootLayout({
             near the fixed Header (top) and Navigation (bottom) instead of passing under them. */}
         <div
           aria-hidden
-          className="fixed top-0 left-0 right-0 h-40 z-40 pointer-events-none"
+          className="fixed top-0 left-0 right-0 h-28 md:h-40 z-40 pointer-events-none"
           style={{ background: fade("bottom") }}
         />
         <div
           aria-hidden
-          className="fixed bottom-0 left-0 right-0 h-36 md:h-32 z-40 pointer-events-none"
+          className="fixed bottom-0 left-0 right-0 h-28 md:h-32 z-40 pointer-events-none"
           style={{ background: fade("top") }}
         />
         <Analytics />

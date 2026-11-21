@@ -20,7 +20,7 @@ export default function Profile() {
     <>
       <Header />
       <PageTransition>
-        <main className="min-h-screen px-8 lg:px-16 pt-40 pb-40 md:py-32 content-center">
+        <main className="min-h-screen px-8 lg:px-16 pt-28 pb-28 md:py-32 content-center">
           <h1 className="sr-only">Profile</h1>
           <div className="mx-auto max-w-[34rem]">
             <p className="font-serif text-xl md:text-2xl leading-snug text-pretty">

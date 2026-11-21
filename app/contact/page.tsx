@@ -15,7 +15,7 @@ export default function Contact() {
     <>
       <Header />
       <PageTransition>
-        <main className="min-h-screen px-8 lg:px-16 pt-40 pb-40 md:py-32 content-center">
+        <main className="min-h-screen px-8 lg:px-16 pt-28 pb-28 md:py-32 content-center">
           <h1 className="sr-only">Contact</h1>
           <div className="mx-auto max-w-[34rem]">
             <p className="font-serif text-2xl md:text-3xl leading-snug text-balance">
@@ -50,7 +50,9 @@ export default function Contact() {
               <a
                 href="https://www.linkedin.com/in/fnunogm/"
                 className="p-3 -m-3 hover:opacity-70 transition-opacity duration-500"
-                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn (opens in a new tab)"
               >
                 <svg
                   className="w-5 h-5"
@@ -64,7 +66,9 @@ export default function Contact() {
               <a
                 href="https://www.instagram.com/fnuno91/"
                 className="p-3 -m-3 hover:opacity-70 transition-opacity duration-500"
-                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram (opens in a new tab)"
               >
                 <svg
                   className="w-5 h-5"

@@ -112,7 +112,7 @@ export default async function CaseStudyPage({ params }: Props) {
     <>
       <Header />
       <PageTransition>
-        <main className="px-8 lg:px-16 pt-40 md:pt-48 lg:pt-56 pb-48">
+        <main className="px-8 lg:px-16 pt-28 md:pt-48 lg:pt-56 pb-48">
           <article className="mx-auto max-w-6xl">
             {/* Name, live site, who the client is, credits */}
             <header className={`${columns} space-y-10 lg:space-y-0`}>

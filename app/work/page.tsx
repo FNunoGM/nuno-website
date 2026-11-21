@@ -11,7 +11,7 @@ export default function Work() {
     <>
       <Header />
       <PageTransition>
-        <main className="min-h-screen px-8 lg:px-16 pt-40 pb-36 lg:py-16 content-center">
+        <main className="min-h-screen px-8 lg:px-16 pt-28 pb-28 md:pt-40 md:pb-36 lg:py-16 content-center">
           <h1 className="sr-only">Work</h1>
           <div>
             {/* Grid */}
@@ -26,20 +26,21 @@ export default function Work() {
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {};
                 return (
-                  <article key={project.slug} className="space-y-5">
-                    {project.image && href ? (
+                  <article
+                    key={project.slug}
+                    className="group relative space-y-5"
+                  >
+                    {project.image ? (
                       <div className="overflow-hidden rounded-sm shadow-xl aspect-[16/10]">
-                        <Link href={href} {...external}>
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            width={900}
-                            height={600}
-                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                            preload={index === 0}
-                            className="w-full h-full object-contain transition-opacity duration-500 hover:opacity-70"
-                          />
-                        </Link>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={900}
+                          height={600}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          preload={index === 0}
+                          className="w-full h-full object-contain motion-safe:transition-transform motion-safe:duration-700 ease-out motion-safe:group-hover:scale-[1.02]"
+                        />
                       </div>
                     ) : (
                       <div className="aspect-[16/10] w-full rounded-sm bg-japandi-mid/15 flex items-center justify-center">
@@ -54,12 +55,20 @@ export default function Work() {
                       <div className="flex justify-between items-baseline gap-3">
                         <h2 className="font-sans text-xs tracking-[0.20em] leading-snug">
                           {href ? (
+                            // One link per card: its ::after covers the whole
+                            // card, so the image and text are clickable too.
                             <Link
                               href={href}
                               {...external}
-                              className="hover:opacity-70 transition-opacity"
+                              className="decoration-1 decoration-japandi-mid underline-offset-[0.4em] group-hover:underline focus-visible:outline-none after:absolute after:inset-0 focus-visible:after:outline-1 focus-visible:after:outline-offset-4 focus-visible:after:outline-current"
                             >
                               {project.title}
+                              {external.target && (
+                                <span className="sr-only">
+                                  {" "}
+                                  (opens in a new tab)
+                                </span>
+                              )}
                             </Link>
                           ) : (
                             project.title
