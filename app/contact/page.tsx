@@ -9,6 +9,7 @@ export default function Contact() {
       <Header />
       <PageTransition>
         <main className="min-h-screen flex flex-col">
+          <h1 className="sr-only">Contact</h1>
           <div className="flex-1 flex flex-col items-center justify-center px-8 gap-8">
             {/* Invitation */}
             <p className="font-sans text-xs md:text-sm tracking-[0.20em] opacity-70 text-center max-w-md leading-relaxed">
@@ -18,17 +19,17 @@ export default function Contact() {
             {/* Email */}
             <a
               href="mailto:fnuno91@gmail.com"
-              className="font-sans text-xs md:text-sm tracking-[0.20em] hover:opacity-70 transition-opacity duration-500"
+              className="py-3.5 -my-3.5 md:py-3 md:-my-3 font-sans text-xs md:text-sm tracking-[0.20em] hover:opacity-70 transition-opacity duration-500"
             >
               fnuno91@gmail.com
             </a>
 
             {/* Social Icons */}
-            <nav className="flex items-center gap-6">
+            <nav aria-label="Social" className="flex items-center gap-6">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/fnunogm/"
-                className="hover:opacity-70 transition-opacity duration-500"
+                className="p-3 -m-3 hover:opacity-70 transition-opacity duration-500"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -42,7 +43,7 @@ export default function Contact() {
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/fnuno91/"
-                className="hover:opacity-70 transition-opacity duration-500"
+                className="p-3 -m-3 hover:opacity-70 transition-opacity duration-500"
                 aria-label="Instagram"
               >
                 <svg

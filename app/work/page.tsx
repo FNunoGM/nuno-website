@@ -40,7 +40,7 @@ export default function Work() {
       year: "2026",
       role: "Design & Development",
       description:
-        "A bilingual headless storefront for the Paris design boutique Alan Louis — editorial, image-led, built on Shopify and Sanity.",
+        "A bilingual headless storefront for the Paris design boutique Alan Louis: editorial, image-led, built on Shopify and Sanity.",
       technologies: [
         "Next.js",
         "React",
@@ -65,6 +65,7 @@ export default function Work() {
       <Header />
       <PageTransition>
         <main className="min-h-screen px-8 lg:px-16 pt-40 pb-36 lg:py-16 content-center">
+          <h1 className="sr-only">Work</h1>
           <div>
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
@@ -82,13 +83,15 @@ export default function Work() {
                           alt={project.title}
                           width={900}
                           height={600}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          preload={index === 0}
                           className="w-full h-full object-contain transition-opacity duration-500 hover:opacity-70"
                         />
                       </Link>
                     </div>
                   ) : (
                     <div className="aspect-[16/10] w-full rounded-sm bg-japandi-mid/15 flex items-center justify-center">
-                      <span className="font-serif text-xs tracking-[0.30em] uppercase opacity-60">
+                      <span className="font-serif text-xs tracking-[0.30em] uppercase opacity-70">
                         Coming soon
                       </span>
                     </div>
@@ -97,21 +100,21 @@ export default function Work() {
                   {/* Meta */}
                   <div className="space-y-2">
                     <div className="flex justify-between items-baseline gap-3">
-                      {project.url ? (
-                        <Link
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-sans text-xs tracking-[0.20em] leading-snug hover:opacity-70 transition-opacity"
-                        >
-                          {project.title}
-                        </Link>
-                      ) : (
-                        <h2 className="font-sans text-xs tracking-[0.20em] leading-snug">
-                          {project.title}
-                        </h2>
-                      )}
-                      <span className="font-sans text-xs tracking-[0.20em] opacity-60 shrink-0">
+                      <h2 className="font-sans text-xs tracking-[0.20em] leading-snug">
+                        {project.url ? (
+                          <Link
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:opacity-70 transition-opacity"
+                          >
+                            {project.title}
+                          </Link>
+                        ) : (
+                          project.title
+                        )}
+                      </h2>
+                      <span className="font-sans text-xs tracking-[0.20em] opacity-70 shrink-0">
                         {project.year}
                       </span>
                     </div>
@@ -122,7 +125,7 @@ export default function Work() {
                       {project.technologies.map((tech, i) => (
                         <li
                           key={i}
-                          className="font-sans text-xs tracking-[0.20em] uppercase opacity-50"
+                          className="font-sans text-xs tracking-[0.20em] uppercase opacity-70"
                         >
                           {tech}
                         </li>

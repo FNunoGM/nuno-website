@@ -6,12 +6,14 @@ import PageTransition from "@/components/common/PageTransition";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <>
       <Header />
       <PageTransition>
-        <Hero />
+        <main>
+          <Hero />
+        </main>
       </PageTransition>
       <Navigation />
-    </main>
+    </>
   );
 }

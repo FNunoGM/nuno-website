@@ -1,21 +1,11 @@
 // components/common/PageTransition.tsx
-"use client";
-
-import { motion } from "framer-motion";
+// CSS-only fade-in. Runs as soon as the stylesheet loads, so content never
+// waits on JavaScript (slow phones, in-app browsers). See .page-fade in globals.css.
 
 export default function PageTransition({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="page-fade">{children}</div>;
 }

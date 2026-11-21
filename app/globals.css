@@ -1,19 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --background: #d1c0ab;
-  --foreground: #22110a;
+@theme {
+  --color-japandi-light: #d1c0ab;
+  --color-japandi-mid: #ad9479;
+  --color-japandi-accent: #7b6046;
+  --color-japandi-card: #4f3520;
+  --color-japandi-dark: #22110a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #22110a;
-    --foreground: #d1c0ab;
-  }
+/* --font-newsreader is set on <html> by next/font in app/layout.tsx. */
+@theme inline {
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+}
+
+/* Dark brown is the brand surface on every device; it does not follow the OS theme. */
+:root {
+  --background: var(--color-japandi-dark);
+  --foreground: var(--color-japandi-light);
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 1px solid var(--foreground);
+  outline-offset: 4px;
+}
+
+/* Page entrance: a short fade that needs no JavaScript. */
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.page-fade {
+  animation: page-fade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade {
+    animation: none;
+  }
 }

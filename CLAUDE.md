@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal portfolio site for Nuno Mendes (software developer). Single-author Next.js app deployed on Vercel, showcasing work, profile, and contact info.
+Portfolio site for Nuno Mendes, who builds websites and online shops for independent brands, studios and artists. Based in Lisbon, working worldwide. Single-author Next.js app deployed on Vercel, showcasing work, profile, and contact info.
 
 ## Commands
 
@@ -22,8 +22,9 @@ There is no test suite.
 Next.js 16 **App Router** with React 19 and Tailwind CSS v4 (via `@tailwindcss/postcss`).
 
 - `app/` — routes. Each page (`/`, `/work`, `/profile`, `/contact`) is a server component that composes the same three pieces: `<Header />`, content wrapped in `<PageTransition>`, and `<Navigation />` fixed to the bottom.
-- `components/common/` — shared layout primitives (`Header`, `Hero`, `Navigation`, `Footer`, `PageTransition`). `PageTransition` is a `"use client"` framer-motion wrapper that fades content in on mount; it's the only client component pattern used.
-- `app/layout.tsx` — root layout, mounts `@vercel/analytics`. Page metadata is set per-route.
+- `components/common/` — shared layout primitives (`Header`, `Hero`, `Navigation`, `Footer`, `PageTransition`). `PageTransition` is a server component that applies a CSS-only fade (`.page-fade` in `globals.css`) so content never waits on JavaScript. `Navigation` is the only client component (`usePathname` for the current-page underline and `aria-current`).
+- `app/not-found.tsx` — branded 404 using the same Header/PageTransition/Navigation pattern.
+- `app/layout.tsx` — root layout, mounts `@vercel/analytics`. Holds the site-wide title, description, Open Graph/Twitter tags and `metadataBase` (`https://www.nunofm.com`); routes inherit them. `app/opengraph-image.jpg` is the link-preview image (WhatsApp, iMessage, LinkedIn).
 - `public/` — static assets, including project screenshots under `public/work/`.
 
 Path alias `@/*` resolves to the repo root (see `tsconfig.json`), so imports look like `@/components/common/Header`.
@@ -31,9 +32,10 @@ Path alias `@/*` resolves to the repo root (see `tsconfig.json`), so imports loo
 ### Styling
 
 - Tailwind v4 with `@import "tailwindcss"` in `app/globals.css`.
-- A custom `japandi` color palette and `Playfair Display` (serif) / `Inter` (sans) fonts are defined in `tailwind.config.ts`.
+- Design tokens live in `app/globals.css` (there is no `tailwind.config.ts`): the `japandi` color palette in `@theme`, and `--font-serif` in `@theme inline`, pointing at **Newsreader** (variable weight + optical size), self-hosted via `next/font/google` in `app/layout.tsx`. `font-sans` is Tailwind's default system stack.
+- If the serif changes, regenerate `app/opengraph-image.jpg` so the name in the link preview matches.
 - Design language relies heavily on wide letter-spacing (`tracking-[0.20em]` / `tracking-[0.30em]`), uppercase serif headings, and opacity-based hover transitions. Match this when adding new UI.
-- Dark mode is handled via `prefers-color-scheme` swapping CSS variables in `globals.css` — no theme toggle.
+- The site is always dark brown (`--background` #22110a, `--foreground` #d1c0ab); it deliberately does not follow the OS light/dark setting.
 
 ### Adding a new page
 
