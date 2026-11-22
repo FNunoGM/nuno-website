@@ -26,12 +26,12 @@ export default function Profile() {
             <p className="font-serif text-xl md:text-2xl leading-snug text-pretty">
               I&rsquo;m Nuno, a web developer in Lisbon. I&nbsp;build websites
               and online shops for independent brands, studios and artists, with
-              clients in Portugal, Germany and Dubai.
+              clients in Portugal, Germany, Switzerland and Dubai.
             </p>
 
             <h2 className={`mt-10 md:mt-12 ${label}`}>What you get</h2>
             <ul className="mt-4 space-y-3 font-serif text-base md:text-lg leading-relaxed">
-              {promises.map((promise) => (
+              {promises.map(promise => (
                 <li
                   key={promise}
                   className="relative pl-6 text-pretty before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-japandi-mid"
