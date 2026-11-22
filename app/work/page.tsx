@@ -11,16 +11,20 @@ export default function Work() {
     <>
       <Header />
       <PageTransition>
-        <main className="min-h-screen px-8 lg:px-16 pt-28 pb-28 md:pt-40 md:pb-36 lg:py-16 content-center">
+        <main className="min-h-screen px-8 lg:px-16 pt-28 pb-28 md:pt-40 md:pb-36 content-center">
           <h1 className="sr-only">Work</h1>
           <div>
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
               {projects.map((project, index) => {
-                // A project with a case study opens it; the rest go to the live site.
-                const href = visibleCaseStudy(project)
-                  ? `/work/${project.slug}`
-                  : project.url;
+                // In progress: no link yet. Otherwise a project with a case
+                // study opens it, and the rest go to the live site.
+                const inProgress = project.status === "in-progress";
+                const href = inProgress
+                  ? undefined
+                  : visibleCaseStudy(project)
+                    ? `/work/${project.slug}`
+                    : project.url;
                 const external =
                   href === project.url
                     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -39,13 +43,13 @@ export default function Work() {
                           height={600}
                           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           preload={index === 0}
-                          className="w-full h-full object-contain motion-safe:transition-transform motion-safe:duration-700 ease-out motion-safe:group-hover:scale-[1.02]"
+                          className={`w-full h-full object-contain ${href ? "motion-safe:transition-transform motion-safe:duration-700 ease-out motion-safe:group-hover:scale-[1.02]" : ""}`}
                         />
                       </div>
                     ) : (
                       <div className="aspect-[16/10] w-full rounded-sm bg-japandi-mid/15 flex items-center justify-center">
                         <span className="font-serif text-xs tracking-[0.30em] uppercase opacity-70">
-                          Coming soon
+                          In progress
                         </span>
                       </div>
                     )}
@@ -75,7 +79,7 @@ export default function Work() {
                           )}
                         </h2>
                         <span className="font-sans text-xs tracking-[0.20em] opacity-70 shrink-0">
-                          {project.year}
+                          {inProgress ? "In progress" : project.year}
                         </span>
                       </div>
                       <p className="font-sans text-xs tracking-[0.10em] opacity-70">

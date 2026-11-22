@@ -37,7 +37,10 @@ export type Project = {
   role: string;
   // Credit for a designer other than me, shown on the case study.
   designer?: { name: string; url?: string };
-  description: string;
+  description?: string;
+  // Not launched yet: the card shows "In progress" in place of the year
+  // and links nowhere until the project has a url and the status goes.
+  status?: "in-progress";
   // Shown as the stack tags.
   technologies: string[];
   caseStudy?: CaseStudy;
@@ -135,14 +138,42 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "yogastudio-potsdam",
+    name: "Yoga & Pilates Studios Potsdam",
+    title: "Website for Yoga & Pilates Studios Potsdam",
+    // Captured from the preview (yogastudio-potsdam.vercel.app) on
+    // 2026-11-22, with the Variants review button hidden.
+    image: "/work/yogastudio-potsdam.jpg",
+    year: "2026",
+    role: "Design & Development",
+    status: "in-progress",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Sanity"],
+  },
+  {
+    slug: "the-dahu",
+    name: "The Dahu",
+    title: "Website for The Dahu",
+    // Captured from the local dev build on 2026-11-22 (the Vercel preview
+    // is behind a login).
+    image: "/work/the-dahu.jpg",
+    year: "2026",
+    role: "Design & Development",
+    status: "in-progress",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Sanity"],
+  },
+  {
     slug: "slow-sunday-rituals",
     name: "Slow Sunday Rituals",
     title: "Website for Slow Sunday Rituals",
     year: "2026",
     role: "Design & Development",
+    // Captured from the preview (slow-sunday-rituals.vercel.app) on
+    // 2026-11-22, after Amelie agreed.
+    image: "/work/slow-sunday-rituals.jpg",
+    status: "in-progress",
     description:
       "An editorial website for German nutritionist Amélie's wellness practice, Slow Sunday Rituals.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Sanity"],
   },
 ];
 
