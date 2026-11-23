@@ -4,10 +4,10 @@ import Navigation from "@/components/common/Navigation";
 import PageTransition from "@/components/common/PageTransition";
 
 const promises = [
-  "A site made for your brand, not a template.",
+  "A website made for your brand, not a template.",
   "One fixed price, agreed in writing before work starts.",
   "Everything in your name: your shop, your content, your domain.",
-  "Pages you can update yourself.",
+  "A website you can change yourself.",
   "Care after launch: hosting, updates, fixes and small changes every month.",
 ];
 
@@ -24,9 +24,9 @@ export default function Profile() {
           <h1 className="sr-only">Profile</h1>
           <div className="mx-auto max-w-[34rem]">
             <p className="font-serif text-xl md:text-2xl leading-snug text-pretty">
-              I&rsquo;m Nuno, a web developer in Lisbon. I&nbsp;build websites
-              and online shops for independent brands, studios and artists, with
-              clients in Portugal, Germany, Switzerland and Dubai.
+              I&rsquo;m Nuno, a web developer in Lisbon. I&nbsp;build bespoke
+              websites and online shops for independent brands, studios and
+              artists, with clients in Portugal, Germany, Switzerland and Dubai.
             </p>
 
             <h2 className={`mt-10 md:mt-12 ${label}`}>What you get</h2>
