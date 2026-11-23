@@ -36,7 +36,7 @@ Path alias `@/*` resolves to the repo root (see `tsconfig.json`), so imports loo
 - Design tokens live in `app/globals.css` (there is no `tailwind.config.ts`): the `japandi` color palette in `@theme`, and `--font-serif` in `@theme inline`, pointing at **Newsreader** (variable weight + optical size), self-hosted via `next/font/google` in `app/layout.tsx`. `font-sans` is Tailwind's default system stack.
 - If the serif changes, regenerate `app/opengraph-image.jpg` so the name in the link preview matches.
 - Design language relies heavily on wide letter-spacing (`tracking-[0.20em]` / `tracking-[0.30em]`), uppercase serif headings, and opacity-based hover transitions. Match this when adding new UI.
-- The site is always dark brown (`--background` #22110a, `--foreground` #d1c0ab); it deliberately does not follow the OS light/dark setting.
+- Colours follow each visitor's system light/dark setting (no toggle): dark brown (`--background` #22110a, `--foreground` #d1c0ab) in dark mode, sand (the inverse) in light mode. `--detail` (underlines, list dots, outlines) is `japandi-mid` in dark mode and `japandi-accent` in light mode, because mid is too faint on sand. Use `foreground`, `detail` and `current` in components rather than fixed `japandi-*` colours, so both modes work. `themeColor` in `app/layout.tsx` matches. The link-preview image stays dark brown.
 
 ### Adding a new page
 

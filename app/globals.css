@@ -8,16 +8,31 @@
   --color-japandi-dark: #22110a;
 }
 
-/* --font-newsreader is set on <html> by next/font in app/layout.tsx. */
+/* --font-newsreader is set on <html> by next/font in app/layout.tsx.
+   foreground and detail follow the visitor's light/dark setting below. */
 @theme inline {
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --color-foreground: var(--foreground);
+  --color-detail: var(--detail);
 }
 
-/* Dark brown is the brand surface on every device; it does not follow the OS theme. */
+/* Follows each visitor's system setting: dark brown in dark mode, sand in light mode.
+   --detail is for underlines, list dots and outlines; mid brown is too faint on sand,
+   so light mode uses the accent brown. */
 :root {
   --background: var(--color-japandi-dark);
   --foreground: var(--color-japandi-light);
+  --detail: var(--color-japandi-mid);
   color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: var(--color-japandi-light);
+    --foreground: var(--color-japandi-dark);
+    --detail: var(--color-japandi-accent);
+    color-scheme: light;
+  }
 }
 
 body {

@@ -26,7 +26,7 @@ export default function Contact() {
               {asks.map((ask) => (
                 <li
                   key={ask}
-                  className="relative pl-6 text-pretty before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-japandi-mid"
+                  className="relative pl-6 text-pretty before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-detail"
                 >
                   {ask}
                 </li>
@@ -39,7 +39,7 @@ export default function Contact() {
 
             <a
               href="mailto:fnuno91@gmail.com"
-              className="inline-block mt-3 py-3 font-serif text-xl md:text-2xl underline decoration-1 decoration-japandi-mid underline-offset-[0.3em] hover:opacity-70 transition-opacity duration-500"
+              className="inline-block mt-3 py-3 font-serif text-xl md:text-2xl underline decoration-1 decoration-detail underline-offset-[0.3em] hover:opacity-70 transition-opacity duration-500"
             >
               fnuno91@gmail.com
             </a>

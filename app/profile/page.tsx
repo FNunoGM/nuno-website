@@ -34,7 +34,7 @@ export default function Profile() {
               {promises.map(promise => (
                 <li
                   key={promise}
-                  className="relative pl-6 text-pretty before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-japandi-mid"
+                  className="relative pl-6 text-pretty before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-detail"
                 >
                   {promise}
                 </li>

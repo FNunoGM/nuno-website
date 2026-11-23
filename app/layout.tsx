@@ -36,9 +36,13 @@ export const metadata: Metadata = {
   },
 };
 
+// Matches the background in app/globals.css, which follows the visitor's light/dark setting.
 export const viewport: Viewport = {
-  themeColor: "#22110a",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#d1c0ab" },
+    { media: "(prefers-color-scheme: dark)", color: "#22110a" },
+  ],
+  colorScheme: "light dark",
 };
 
 // Solid behind the header/nav text so it stays legible over bright images,

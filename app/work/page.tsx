@@ -47,7 +47,7 @@ export default function Work() {
                         />
                       </div>
                     ) : (
-                      <div className="aspect-[16/10] w-full rounded-sm bg-japandi-mid/15 flex items-center justify-center">
+                      <div className="aspect-[16/10] w-full rounded-sm bg-detail/15 flex items-center justify-center">
                         <span className="font-serif text-xs tracking-[0.30em] uppercase opacity-70">
                           In progress
                         </span>
@@ -64,7 +64,7 @@ export default function Work() {
                             <Link
                               href={href}
                               {...external}
-                              className="decoration-1 decoration-japandi-mid underline-offset-[0.4em] group-hover:underline focus-visible:outline-none after:absolute after:inset-0 focus-visible:after:outline-1 focus-visible:after:outline-offset-4 focus-visible:after:outline-current"
+                              className="decoration-1 decoration-detail underline-offset-[0.4em] group-hover:underline focus-visible:outline-none after:absolute after:inset-0 focus-visible:after:outline-1 focus-visible:after:outline-offset-4 focus-visible:after:outline-current"
                             >
                               {project.title}
                               {external.target && (

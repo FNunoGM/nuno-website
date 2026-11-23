@@ -59,12 +59,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // Dashed outline on any text that still starts with [Placeholder].
 const mark = (text: string) =>
   isPlaceholder(text)
-    ? "outline-1 outline-dashed outline-offset-4 outline-japandi-mid"
+    ? "outline-1 outline-dashed outline-offset-4 outline-detail"
     : "";
 
 const prose = "font-serif text-lg md:text-xl leading-relaxed";
 const label = "font-sans text-xs tracking-[0.30em] uppercase opacity-70";
-const rule = "border-t border-japandi-light/15 pt-8 md:pt-10";
+const rule = "border-t border-foreground/15 pt-8 md:pt-10";
 const columns = "lg:grid lg:grid-cols-[1fr_2fr] lg:gap-x-16";
 
 function Section({
@@ -125,7 +125,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 py-3.5 -my-3.5 md:py-3 md:-my-3 font-sans text-xs md:text-sm tracking-[0.20em] uppercase underline decoration-1 decoration-japandi-mid underline-offset-[0.5em] hover:opacity-70 transition-opacity duration-500"
+                    className="inline-flex items-center gap-2 py-3.5 -my-3.5 md:py-3 md:-my-3 font-sans text-xs md:text-sm tracking-[0.20em] uppercase underline decoration-1 decoration-detail underline-offset-[0.5em] hover:opacity-70 transition-opacity duration-500"
                   >
                     {host}
                     <ExternalArrow />
@@ -154,7 +154,7 @@ export default async function CaseStudyPage({ params }: Props) {
                             href={project.designer.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline decoration-1 decoration-japandi-mid underline-offset-[0.4em] hover:opacity-70 transition-opacity duration-500"
+                            className="underline decoration-1 decoration-detail underline-offset-[0.4em] hover:opacity-70 transition-opacity duration-500"
                           >
                             {project.designer.name}
                           </a>
@@ -199,7 +199,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     {decisions.map((decision, i) => (
                       <li
                         key={i}
-                        className={`relative pl-6 before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-japandi-mid ${prose}`}
+                        className={`relative pl-6 before:absolute before:left-0 before:top-[0.75em] before:size-1 before:rounded-full before:bg-detail ${prose}`}
                       >
                         <span className={mark(decision)}>{decision}</span>
                       </li>
